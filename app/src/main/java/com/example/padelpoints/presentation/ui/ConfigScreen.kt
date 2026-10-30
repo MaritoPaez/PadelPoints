@@ -192,6 +192,19 @@ fun ConfigScreen(
                     Text("Volver", fontWeight = FontWeight.Bold, fontSize = 13.sp)
                 }
             }
+
+            // 5. MARCA DEL CREADOR
+            item {
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    text = "Creador: @MaritoPaez",
+                    color = yellowColor.copy(alpha = 0.85f),
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.Medium,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp)
+                )
+            }
         }
     }
 }
