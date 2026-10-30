@@ -1,0 +1,48 @@
+=== AUDIOS DE VOZ HUMANA PARA EL CONTADOR DE PÁDEL ===
+
+Puedes colocar aquí o en app/src/main/res/raw/ tus propios archivos de audio pregrabados con voz humana en formato .ogg o .mp3.
+El sistema SoundManager detectará automáticamente estos archivos y los reproducirá al instante con CERO latencia.
+
+NOMBRES DE ARCHIVO REQUERIDOS (sólo minúsculas y guiones bajos):
+
+--- Saque e Inicio ---
+por_el_saque.ogg
+saca_equipo_1.ogg
+saca_equipo_2.ogg
+
+--- Puntos del Juego ---
+puntos_0_0.ogg        ("Cero iguales")
+puntos_0_15.ogg       ("Cero quince")
+puntos_0_30.ogg       ("Cero treinta")
+puntos_0_40.ogg       ("Cero cuarenta")
+
+puntos_15_0.ogg       ("Quince cero")
+puntos_15_15.ogg      ("Quince iguales")
+puntos_15_30.ogg      ("Quince treinta")
+puntos_15_40.ogg      ("Quince cuarenta")
+
+puntos_30_0.ogg       ("Treinta cero")
+puntos_30_15.ogg      ("Treinta quince")
+puntos_30_30.ogg      ("Treinta iguales")
+puntos_30_40.ogg      ("Treinta cuarenta")
+
+puntos_40_0.ogg       ("Cuarenta cero")
+puntos_40_15.ogg      ("Cuarenta quince")
+puntos_40_30.ogg      ("Cuarenta treinta")
+
+punto_de_oro.ogg      ("Punto de Oro")
+
+--- Eventos y Ajustes ---
+juego_equipo_1.ogg    ("Juego Equipo 1")
+juego_equipo_2.ogg    ("Juego Equipo 2")
+partido_equipo_1.ogg  ("Partido para Equipo 1")
+partido_equipo_2.ogg  ("Partido para Equipo 2")
+punto_anulado.ogg     ("Punto anulado")
+partido_reiniciado.ogg("Partido reiniciado")
+a_3.ogg               ("A tres")
+a_4.ogg               ("A cuatro")
+a_5.ogg               ("A cinco")
+a_6.ogg               ("A seis")
+sonido_activado.ogg   ("Sonido activado")
+
+Nota: Si algún archivo no está presente en res/raw/, el sistema usará automáticamente el motor TextToSpeech en español como respaldo.
