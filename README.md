@@ -4,6 +4,22 @@
 
 ---
 
+## 🌟 Novedades de la Versión 1.2 (v1.2)
+
+* 🎾 **Sistema Completo de Tiebreak (Desempate)**:
+  - **Selector Tiebreak (SÍ / NO)**: Desactivado por defecto en la pantalla de configuración.
+  - **Activación Automática**: Cuando los equipos empatan en el penúltimo juego (`5-5` en sets a 6, `4-4` a 5, o `3-3` a 4), se inicia automáticamente el juego de Tiebreak.
+  - **Modo "Muere en 7" (SÍ / NO)**: Selector opcional cuando el Tiebreak está activo (por defecto en NO). Si se activa (SÍ), el primer equipo en llegar a 7 puntos gana el set directamente sin requerir diferencia de 2. Si está en NO, se utiliza la regla reglamentaria FIP (diferencia mínima de 2 puntos).
+  - **Visualización Optimizada**: Los puntos de Tiebreak (`0`, `1`, `2`, `3`...) se muestran en tamaño gigante (`58sp`) en el centro de la pantalla, conservando los juegos acumulados del set en el círculo inferior (`48dp`).
+  - **Rotación de Saque Oficial**: Automatización de la secuencia de saques (1er punto 1 saque, luego 2 saques alternados por equipo).
+* ⌚ **Reloj Analógico y Encabezados Rediseñados**:
+  - Reloj analógico superior ampliado a **44dp** con agujas más legibles.
+  - Banderines simétricos de **"SAQUE"**, **"EQ 1"** y **"EQ 2"** a la misma altura vertical para una estética totalmente alineada.
+* 🔊 **Síntesis de Voz Ecualizada (TTS)**:
+  - Ajuste de velocidad natural (`0.95f`) y pronunciación para una transición fluida entre los audios estáticos y los relatos en vivo del marcador.
+
+---
+
 ## 🚀 Características Principales
 
 * 👁️ **Diseño de Alto Contraste 50/50**:
@@ -63,8 +79,6 @@ La aplicación incluye los 30 archivos de audio `.wav` pregrabados para todos lo
 * `puntos_0_0.wav` a `puntos_40_30.wav` (todos los estados del juego)
 * `punto_de_oro.wav`, `juego_equipo_1.wav`, `juego_equipo_2.wav`, `partido_equipo_1.wav`, `partido_equipo_2.wav`
 * `punto_anulado.wav`, `partido_reiniciado.wav`, `a_3.wav`, `a_4.wav`, `a_5.wav`, `a_6.wav`
-
-*Puedes reemplazar estos archivos con tus propios audios grabados o creados con IA (estilo ElevenLabs o ChatGPT) conservando los mismos nombres.*
 
 ---
 

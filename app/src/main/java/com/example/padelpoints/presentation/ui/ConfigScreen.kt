@@ -159,9 +159,48 @@ fun ConfigScreen(
                 }
             }
 
-            // 3. SONIDO (SÍ / NO)
+            // 3. TIEBREAK (SÍ / NO)
             item {
-                Spacer(modifier = Modifier.height(6.dp))
+                Spacer(modifier = Modifier.height(4.dp))
+                Button(
+                    onClick = { viewModel.toggleTiebreak(!state.useTiebreak) },
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = if (state.useTiebreak) Color(0xFF2E7D32) else Color.DarkGray,
+                        contentColor = Color.White
+                    )
+                ) {
+                    Text(
+                        text = if (state.useTiebreak) "Tiebreak: SÍ" else "Tiebreak: NO",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 13.sp
+                    )
+                }
+            }
+
+            // 3b. MUERE EN 7 (SÍ / NO) - Visible solo si Tiebreak está activado
+            if (state.useTiebreak) {
+                item {
+                    Button(
+                        onClick = { viewModel.toggleTiebreakDieAt7(!state.tiebreakDieAt7) },
+                        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = if (state.tiebreakDieAt7) Color(0xFF2E7D32) else Color.DarkGray,
+                            contentColor = Color.White
+                        )
+                    ) {
+                        Text(
+                            text = if (state.tiebreakDieAt7) "Muere en 7: SÍ" else "Muere en 7: NO",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 13.sp
+                        )
+                    }
+                }
+            }
+
+            // 4. SONIDO (SÍ / NO)
+            item {
+                Spacer(modifier = Modifier.height(2.dp))
                 Button(
                     onClick = { viewModel.toggleSound(!state.soundEnabled) },
                     modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),

@@ -77,6 +77,8 @@ fun CounterScreenContent(
     val yellowColor = Color(0xFFFFE500)
     val blackColor = Color(0xFF000000)
 
+    val activeServingTeam = state.getActiveServingTeam()
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -101,7 +103,7 @@ fun CounterScreenContent(
                     teamName = "EQ 1",
                     pointsText = state.pointToString(state.team1Points),
                     gamesCount = state.team1Games,
-                    isServing = state.servingTeam == 1,
+                    isServing = activeServingTeam == 1,
                     textColor = yellowColor,
                     badgeBgColor = yellowColor,
                     badgeTextColor = blackColor
@@ -126,7 +128,7 @@ fun CounterScreenContent(
                     teamName = "EQ 2",
                     pointsText = state.pointToString(state.team2Points),
                     gamesCount = state.team2Games,
-                    isServing = state.servingTeam == 2,
+                    isServing = activeServingTeam == 2,
                     textColor = blackColor,
                     badgeBgColor = blackColor,
                     badgeTextColor = yellowColor
@@ -134,7 +136,7 @@ fun CounterScreenContent(
             }
         }
 
-        // RELOJ ANALÓGICO MÁS GRANDE EN LA PARTE SUPERIOR (SUPERPOSICIÓN SUTIL EN LA PARTE SUPERIOR)
+        // RELOJ ANALÓGICO MÁS GRANDE EN LA PARTE SUPERIOR
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -145,7 +147,7 @@ fun CounterScreenContent(
             AnalogClock(size = 44.dp)
         }
 
-        // CARTEL "POR EL SAQUE" DEBAJO DEL RELOJ ANALÓGICO
+        // CARTEL "POR EL SAQUE" O "TIEBREAK" DEBAJO DEL RELOJ ANALÓGICO
         if (state.servingTeam == null) {
             Box(
                 modifier = Modifier
@@ -164,6 +166,28 @@ fun CounterScreenContent(
                         color = Color.White,
                         fontSize = 10.sp,
                         fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+        } else if (state.isTiebreak) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.TopCenter)
+                    .padding(top = 48.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Box(
+                    modifier = Modifier
+                        .background(Color(0xFFFF9800), shape = RoundedCornerShape(12.dp))
+                        .padding(horizontal = 8.dp, vertical = 2.dp)
+                ) {
+                    Text(
+                        text = "TIEBREAK",
+                        color = Color.Black,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Black,
                         textAlign = TextAlign.Center
                     )
                 }
@@ -343,12 +367,12 @@ private fun TeamHalfContent(
         Text(
             text = pointsText,
             color = textColor,
-            fontSize = if (pointsText == "ORO") 32.sp else 58.sp,
+            fontSize = if (pointsText == "ORO" || pointsText == "TB") 32.sp else 58.sp,
             fontWeight = FontWeight.ExtraBold,
             textAlign = TextAlign.Center
         )
 
-        // JUEGOS GANADOS (CÍRCULO 48dp CON NÚMERO 30sp Y SUPERPOSICIÓN SUTIL EN LOS TANTOS)
+        // JUEGOS GANADOS O PUNTOS DE TIEBREAK (CÍRCULO 48dp CON NÚMERO 30sp Y SUPERPOSICIÓN SUTIL)
         Box(
             modifier = Modifier
                 .offset(y = (-8).dp)
@@ -410,6 +434,27 @@ private fun CounterScreenInGamePreview() {
             team2Points = 1, // 15
             team1Games = 3,
             team2Games = 2
+        ),
+        onSideTapped = {},
+        onSideLongPressed = {},
+        onResetMatch = {},
+        onOpenConfig = {}
+    )
+}
+
+@Preview(name = "Tiebreak", widthDp = 200, heightDp = 200, showBackground = true)
+@Composable
+private fun CounterScreenTiebreakPreview() {
+    CounterScreenContent(
+        state = PadelGameState(
+            servingTeam = 1,
+            team1Points = 5,
+            team2Points = 4,
+            team1Games = 5,
+            team2Games = 5,
+            maxGames = 6,
+            useTiebreak = true,
+            tiebreakInitialServer = 1
         ),
         onSideTapped = {},
         onSideLongPressed = {},

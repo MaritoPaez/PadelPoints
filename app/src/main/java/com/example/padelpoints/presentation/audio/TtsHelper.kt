@@ -13,7 +13,9 @@ class TtsHelper(context: Context) : TextToSpeech.OnInitListener {
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = tts?.setLanguage(Locale.forLanguageTag("es-ES"))
+            val defaultLocale = Locale.getDefault()
+            val targetLocale = if (defaultLocale.language == "es") defaultLocale else Locale.forLanguageTag("es-ES")
+            val result = tts?.setLanguage(targetLocale)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 // Intento fallback con español genérico
                 val genericResult = tts?.setLanguage(Locale.forLanguageTag("es"))
@@ -23,7 +25,7 @@ class TtsHelper(context: Context) : TextToSpeech.OnInitListener {
                     return
                 }
             }
-            tts?.setSpeechRate(1.0f)
+            tts?.setSpeechRate(0.95f)
             tts?.setPitch(1.0f)
             isReady = true
         } else {
