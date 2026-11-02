@@ -232,9 +232,9 @@ class PadelGameViewModel : ViewModel() {
         val newState = _state.value.copy(useTiebreak = enabled)
         _state.value = newState
         if (enabled) {
-            soundManager?.playSoundOrSpeak("tiebreak_activado", "Tiebreak activado")
+            soundManager?.playSoundOrSpeak("tiebreak_activado", "Taibrek activado")
         } else {
-            soundManager?.playSoundOrSpeak("tiebreak_desactivado", "Tiebreak desactivado")
+            soundManager?.playSoundOrSpeak("tiebreak_desactivado", "Taibrek desactivado")
         }
     }
 

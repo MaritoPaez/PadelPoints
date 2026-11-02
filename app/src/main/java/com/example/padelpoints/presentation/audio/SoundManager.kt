@@ -4,7 +4,6 @@ import android.content.Context
 import android.media.AudioAttributes
 import android.media.SoundPool
 import android.util.Log
-import java.io.File
 
 class SoundManager(private val context: Context) {
 
@@ -32,8 +31,7 @@ class SoundManager(private val context: Context) {
     }
 
     private fun loadRawSounds() {
-        // Intenta cargar audios pregrabados desde res/raw/ si existen
-        val soundKeys = listOf(
+        val soundKeys = mutableListOf(
             "por_el_saque", "saca_equipo_1", "saca_equipo_2",
             "puntos_0_0", "puntos_0_15", "puntos_0_30", "puntos_0_40",
             "puntos_15_0", "puntos_15_15", "puntos_15_30", "puntos_15_40",
@@ -41,8 +39,16 @@ class SoundManager(private val context: Context) {
             "puntos_40_0", "puntos_40_15", "puntos_40_30",
             "punto_de_oro", "juego_equipo_1", "juego_equipo_2",
             "partido_equipo_1", "partido_equipo_2", "punto_anulado",
-            "partido_reiniciado", "a_3", "a_4", "a_5", "a_6", "sonido_activado"
+            "partido_reiniciado", "a_3", "a_4", "a_5", "a_6", "sonido_activado",
+            "tiebreak_activado", "tiebreak_desactivado", "no_acciones", "partido_finalizado"
         )
+
+        // Cargar audios de Tiebreak (0 a 15 puntos)
+        for (s in 0..15) {
+            for (r in 0..15) {
+                soundKeys.add("tiebreak_puntos_${s}_${r}")
+            }
+        }
 
         for (key in soundKeys) {
             val resId = context.resources.getIdentifier(key, "raw", context.packageName)
@@ -65,7 +71,7 @@ class SoundManager(private val context: Context) {
             // Reproducción instantánea con SoundPool (cero latencia)
             soundPool.play(soundId, 1.0f, 1.0f, 1, 0, 1.0f)
         } else {
-            // Fallback directo a TextToSpeech
+            // Fallback a TextToSpeech si no existe el archivo de audio
             ttsHelper.speak(fallbackText)
         }
     }

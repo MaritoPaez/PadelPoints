@@ -1,49 +1,46 @@
-# PadelPoints 🎾⌚
+# PadelPoints 🎾⌚ (v1.3)
 
-**PadelPoints** es una aplicación nativa para **Wear OS** (diseñada y optimizada para **Samsung Galaxy Watch7** y relojes inteligentes con pantalla circular) que permite llevar la puntuación de partidos de pádel de forma sencilla, veloz y con síntesis de voz en tiempo real.
-
----
-
-## 🌟 Novedades de la Versión 1.2 (v1.2)
-
-* 🎾 **Sistema Completo de Tiebreak (Desempate)**:
-  - **Selector Tiebreak (SÍ / NO)**: Desactivado por defecto en la pantalla de configuración.
-  - **Activación Automática**: Cuando los equipos empatan en el penúltimo juego (`5-5` en sets a 6, `4-4` a 5, o `3-3` a 4), se inicia automáticamente el juego de Tiebreak.
-  - **Modo "Muere en 7" (SÍ / NO)**: Selector opcional cuando el Tiebreak está activo (por defecto en NO). Si se activa (SÍ), el primer equipo en llegar a 7 puntos gana el set directamente sin requerir diferencia de 2. Si está en NO, se utiliza la regla reglamentaria FIP (diferencia mínima de 2 puntos).
-  - **Visualización Optimizada**: Los puntos de Tiebreak (`0`, `1`, `2`, `3`...) se muestran en tamaño gigante (`58sp`) en el centro de la pantalla, conservando los juegos acumulados del set en el círculo inferior (`48dp`).
-  - **Rotación de Saque Oficial**: Automatización de la secuencia de saques (1er punto 1 saque, luego 2 saques alternados por equipo).
-* ⌚ **Reloj Analógico y Encabezados Rediseñados**:
-  - Reloj analógico superior ampliado a **44dp** con agujas más legibles.
-  - Banderines simétricos de **"SAQUE"**, **"EQ 1"** y **"EQ 2"** a la misma altura vertical para una estética totalmente alineada.
-* 🔊 **Síntesis de Voz Ecualizada (TTS)**:
-  - Ajuste de velocidad natural (`0.95f`) y pronunciación para una transición fluida entre los audios estáticos y los relatos en vivo del marcador.
+**PadelPoints** es una aplicación nativa para **Wear OS** (diseñada y optimizada para **Samsung Galaxy Watch7** y relojes inteligentes con pantalla circular) que permite llevar la puntuación de partidos de pádel de forma sencilla, veloz y con síntesis de voz e interfaz adaptada para lectura rápida en la cancha.
 
 ---
 
-## 🚀 Características Principales
+## 🚀 Novedades de la Versión 1.3
+
+* 🎾 **Modo Tiebreak Oficial**:
+  - Activación/desactivación de Tiebreak desde el menú de configuración.
+  - Rotación oficial de saque en Tiebreak (primer saque de 1 punto, luego rotación cada 2 puntos).
+  - Opción de **"Muere en 7"**: Finalización del Tiebreak al llegar a 7 puntos directos sin diferencia de 2.
+* 🔊 **Audios de Tiebreak Unificados**:
+  - Audios pregrabados en español para todas las combinaciones de Tiebreak hasta 15 puntos por lado (`tiebreak_puntos_0_0` a `tiebreak_puntos_15_15`).
+  - Pronunciación natural *"Taibrek activado/desactivado"*.
+* 🕒 **Reloj Analógico Minimalista**:
+  - Esfera analógica negra con agujas blancas para consultar la hora de un vistazo sin depender de números pequeños.
+* ✍️ **Marca de Autoría**:
+  - Firma del creador `@MaritoPaez` integrada en la pantalla de configuración.
+
+---
+
+## 🌟 Características Principales
 
 * 👁️ **Diseño de Alto Contraste 50/50**:
   - **Equipo 1**: Números amarillos sobre fondo negro (`#FFE500` sobre `#000000`).
   - **Equipo 2**: Números negros sobre fondo amarillo (`#000000` sobre `#FFE500`).
-  - Números gigantes en pantalla central para una lectura inmediata sin esfuerzo visual (ideal para presbicia o lectura rápida durante el juego).
+  - Marcador en fuente gigante alineada y sin solapamientos.
 * 🎾 **Lógica de Pádel Oficial**:
-  - **Modo "POR EL SAQUE"**: Al iniciar o reiniciar, el primer toque asigna qué equipo empieza sacando.
-  - **Canto con Prioridad de Servicio**: Los puntos se muestran y cantan nombrando **siempre primero el puntaje del equipo que tiene el saque**.
-  - **Punto de Oro**: Detección automática al empatar en 40-40, mostrando la palabra **ORO** en ambas mitades.
-  - **Rotación de Saque**: El servicio se alterna automáticamente al finalizar cada juego.
-  - **Juegos Configurables**: Meta de juegos por set ajustable a **3, 4, 5 o 6 juegos** (4 por defecto).
-* 🔊 **Anuncio por Voz (Motor Híbrido SoundPool & TTS)**:
-  - Canta cada punto al instante (*"Cero - Quince"*, *"Treinta iguales"*, *"Punto de Oro"*, *"Juego Equipo 1"*).
-  - Incluye reproducción sin latencia (0 ms) mediante archivos de audio pregrabados en `app/src/main/res/raw/` y respaldo automático por TextToSpeech en español.
+  - **Modo "POR EL SAQUE"**: Asignación inicial de servicio.
+  - **Canto con Prioridad de Servicio**: El marcador y audio nombran siempre primero el puntaje del equipo que tiene el saque.
+  - **Punto de Oro**: Detección automática en 40-40, mostrando la palabra **ORO**.
+  - **Rotación Automática de Saque**: Cambio automático de servicio al ganar cada juego.
+  - **Juegos Configurables**: Meta por set de **3, 4, 5 o 6 juegos** (4 por defecto).
+* 🔊 **Motor de Audio Híbrido (SoundPool & TTS)**:
+  - Canta los puntos al instante (0 ms de latencia) mediante los 152 archivos de audio `.wav` incluidos en `app/src/main/res/raw/`.
 * 🖐️ **Gestos Táctiles Intuitivos**:
-  - **Toque corto (Tap)**: Suma un punto al equipo presionado.
-  - **Toque prolongado (Long Press)**: Resta / deshace el punto del equipo para corregir toques accidentales en segundos.
+  - **Toque corto (Tap)**: Suma punto al equipo presionado.
+  - **Toque prolongado (Long Press)**: Resta / deshace el punto para corregir errores.
 * 💡 **Pantalla Siempre Activa (`FLAG_KEEP_SCREEN_ON`)**:
-  - La pantalla no se apaga ni se suspende durante el partido, manteniendo el marcador siempre visible hasta que cierres la app.
+  - La pantalla no se apaga durante el partido hasta cerrar la app.
 * 🔋 **Ultra Eficiente en Batería (AMOLED)**:
-  - Aprovecha los paneles Super AMOLED apoderando el 50% de la pantalla en negro puro (`#000000`), manteniendo los píxeles apagados con un consumo de solo 5-8% de batería por hora de juego.
-* 🕒 **Reloj Analógico Integrado**:
-  - Esfera analógica minimalista en la parte superior con agujas blancas sobre fondo negro para consultar la hora de un vistazo.
+  - Apagado de píxeles en el 50% de la pantalla (negro puro) con consumo de solo 5-8% de batería por hora de juego.
 
 ---
 
@@ -52,7 +49,7 @@
 * **Android Studio**: Ladybug / 2024.2.1 o superior.
 * **JDK**: 11 o superior.
 * **Wear OS**: Compatible con Wear OS 3, 4 y 5 (minSdk 36, targetSdk 37).
-* **Dispositivo**: Samsung Galaxy Watch7 / Galaxy Watch4, 5, 6, Pixel Watch u otros smartwatches Wear OS.
+* **Dispositivos**: Samsung Galaxy Watch7 / Galaxy Watch4, 5, 6, Pixel Watch u otros relojes Wear OS.
 
 ---
 
@@ -60,7 +57,7 @@
 
 1. **Activar Opciones de Desarrollador en el Reloj**:
    - Ve a `Ajustes` -> `Acerca del reloj` -> `Información de software`.
-   - Toca 7 veces seguidas en **Versión de software** hasta activar las Opciones de desarrollador.
+   - Toca 7 veces seguidas en **Versión de software**.
    - Vuelve a `Ajustes` -> `Opciones de desarrollador`.
    - Activa **Depuración por ADB** y **Depuración por Wi-Fi / Inalámbrica**.
 2. **Emparejar con Android Studio**:
@@ -72,16 +69,13 @@
 
 ---
 
-## 📁 Archivos de Voz Humana (`app/src/main/res/raw/`)
+## 📁 Ubicación del Archivo APK Compilado
 
-La aplicación incluye los 30 archivos de audio `.wav` pregrabados para todos los marcadores y eventos en español:
-* `por_el_saque.wav`, `saca_equipo_1.wav`, `saca_equipo_2.wav`
-* `puntos_0_0.wav` a `puntos_40_30.wav` (todos los estados del juego)
-* `punto_de_oro.wav`, `juego_equipo_1.wav`, `juego_equipo_2.wav`, `partido_equipo_1.wav`, `partido_equipo_2.wav`
-* `punto_anulado.wav`, `partido_reiniciado.wav`, `a_3.wav`, `a_4.wav`, `a_5.wav`, `a_6.wav`
+El archivo ejecutable listo para instalar en tu reloj se encuentra en:
+`app/build/outputs/apk/debug/app-debug.apk`
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto es de código abierto bajo la licencia **MIT**. ¡Siéntete libre de clonarlo, mejorarlo y compartirlo con la comunidad de pádel y desarrolladores Android!
+Este proyecto es de código abierto bajo la licencia **MIT**. Creado por **@MaritoPaez**. ¡Siéntete libre de clonarlo, mejorarlo y compartirlo con la comunidad!
