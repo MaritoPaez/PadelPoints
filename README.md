@@ -1,6 +1,6 @@
 # PadelPoints 🎾⌚ (v1.3)
 
-**PadelPoints** es una aplicación nativa para **Wear OS** (diseñada y optimizada para **Samsung Galaxy Watch7** y relojes inteligentes con pantalla circular) que permite llevar la puntuación de partidos de pádel de forma sencilla, veloz y con síntesis de voz e interfaz adaptada para lectura rápida en la cancha.
+**PadelPoints** es una aplicación nativa para **Wear OS** (diseñada y optimizada para **Samsung Galaxy Watch7 en adelante** y relojes inteligentes con pantalla circular) que permite llevar la puntuación de partidos de pádel (o tenis) de forma sencilla, veloz y con síntesis de voz e interfaz adaptada para lectura rápida en la cancha.
 
 ---
 
@@ -15,8 +15,6 @@
   - Pronunciación natural *"Taibrek activado/desactivado"*.
 * 🕒 **Reloj Analógico Minimalista**:
   - Esfera analógica negra con agujas blancas para consultar la hora de un vistazo sin depender de números pequeños.
-* ✍️ **Marca de Autoría**:
-  - Firma del creador `@MaritoPaez` integrada en la pantalla de configuración.
 
 ---
 
@@ -69,12 +67,6 @@
 
 ---
 
-## 📁 Ubicación del Archivo APK Compilado
-
-El archivo ejecutable listo para instalar en tu reloj se encuentra en:
-`app/build/outputs/apk/debug/app-debug.apk`
-
----
 
 ## 📄 Licencia
 
