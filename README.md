@@ -1,24 +1,24 @@
-# PadelPoints 🎾⌚ (v1.3.1)
+# PadelPoints 🎾⌚ (v1.3.2)
 
 **PadelPoints** es una aplicación nativa para **Wear OS** (diseñada y optimizada para **Samsung Galaxy Watch7 en adelante** y relojes inteligentes con pantalla circular) que permite llevar la puntuación de partidos de pádel (o tenis) de forma sencilla, veloz y con síntesis de voz e interfaz adaptada para lectura rápida en la cancha.
 
 ---
 
-## 🚀 Novedades de la Versión 1.3.1 (v1.3.1)
+## 🚀 Novedades de la Versión 1.3.2 (v1.3.2)
 
-* 🎨 **Rediseño de Círculos de Juegos (Máximo Contraste y Legibilidad)**:
-  - **Ubicación Optimizada**: Círculos de juegos desplazados más abajo y hacia el centro de la pantalla, aprovechando el ancho de la curvatura inferior del smartwatch.
-  - **Diámetro Ampliado**: Aumento de tamaño de 48dp a **54dp**, con números más grandes en negrita máxima (**34sp**).
-  - **Contraste 100%**: Fondo negro sólido con borde e interior en amarillo brillante (`#FFE500`) para ambos equipos, garantizando lectura nítida e inmediata bajo luz solar directa.
-* 🎾 **Modo Tiebreak Oficial**:
-  - Activación/desactivación de Tiebreak desde el menú de configuración.
-  - Rotación oficial de saque en Tiebreak (primer saque de 1 punto, luego rotación cada 2 puntos).
-  - Opción de **"Muere en 7"**: Finalización del Tiebreak al llegar a 7 puntos directos sin diferencia de 2.
-* 🔊 **Audios de Tiebreak Unificados**:
+* 🔍 **Optimización de Legibilidad para Presbicia**:
+  - **Selector de Juegos Gigante**: El número de juegos por set en el menú de configuración se aumentó a **26sp ExtraBold Black** en amarillo brillante, removiendo textos redundantes.
+  - **Centrado Universal**: Todos los botones y opciones de configuración ahora cuentan con alineación 100% centrada.
+* 🎨 **Círculos de Juegos de Máximo Contraste**:
+  - Círculos de juegos ganados en **54dp** con números gigantes de **34sp Black** sobre fondo negro sólido y borde amarillo, desplazados sutilmente hacia el centro para evitar cualquier recorte por la curvatura del bisel.
+* 🎾 **Modo Tiebreak Oficial y "Muere en 7"**:
+  - Activación/desactivación de Tiebreak y regla opcional "Muere en 7" desde el menú de configuración.
+  - Rotación de saque oficial cada 2 puntos en Tiebreak.
+* 🔊 **Audios de Tiebreak Unificados (Hasta 15 Puntos)**:
   - Audios pregrabados en español para todas las combinaciones de Tiebreak hasta 15 puntos por lado (`tiebreak_puntos_0_0` a `tiebreak_puntos_15_15`).
   - Pronunciación natural *"Taibrek activado/desactivado"*.
 * 🕒 **Reloj Analógico Minimalista**:
-  - Esfera analógica negra con agujas blancas para consultar la hora de un vistazo sin depender de números pequeños.
+  - Esfera analógica negra con agujas blancas para consultar la hora de un vistazo.
 
 ---
 
@@ -27,7 +27,6 @@
 * 👁️ **Diseño de Alto Contraste 50/50**:
   - **Equipo 1**: Números amarillos sobre fondo negro (`#FFE500` sobre `#000000`).
   - **Equipo 2**: Números negros sobre fondo amarillo (`#000000` sobre `#FFE500`).
-  - Marcador en fuente gigante alineada y sin solapamientos.
 * 🎾 **Lógica de Pádel Oficial**:
   - **Modo "POR EL SAQUE"**: Asignación inicial de servicio.
   - **Canto con Prioridad de Servicio**: El marcador y audio nombran siempre primero el puntaje del equipo que tiene el saque.

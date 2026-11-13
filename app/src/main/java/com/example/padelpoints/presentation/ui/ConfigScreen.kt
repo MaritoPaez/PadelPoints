@@ -79,19 +79,22 @@ fun ConfigScreen(
                     Text(
                         text = "Reiniciar Partido",
                         fontWeight = FontWeight.Bold,
-                        fontSize = 13.sp
+                        fontSize = 13.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
             }
 
-            // 2. JUEGOS MÁXIMOS POR SET (3, 4, 5, 6 con Cápsula Elegante)
+            // 2. JUEGOS MÁXIMOS POR SET (Número bien grande para lectura rápida)
             item {
                 Text(
                     text = "Juegos por set",
                     color = Color.White,
-                    fontSize = 12.sp,
-                    modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
-                    textAlign = TextAlign.Center
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 4.dp)
                 )
             }
 
@@ -101,7 +104,7 @@ fun ConfigScreen(
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp)
                         .background(Color(0xFF2C2C2E), shape = RoundedCornerShape(20.dp))
-                        .padding(horizontal = 8.dp, vertical = 4.dp),
+                        .padding(horizontal = 8.dp, vertical = 6.dp),
                     contentAlignment = Alignment.Center
                 ) {
                     Row(
@@ -112,7 +115,7 @@ fun ConfigScreen(
                         // Botón Menos (-)
                         Box(
                             modifier = Modifier
-                                .size(32.dp)
+                                .size(36.dp)
                                 .clip(CircleShape)
                                 .background(if (state.maxGames > 3) Color.DarkGray else Color.Transparent)
                                 .clickable(enabled = state.maxGames > 3) {
@@ -123,24 +126,25 @@ fun ConfigScreen(
                             Text(
                                 text = "−",
                                 color = if (state.maxGames > 3) Color.White else Color.Gray.copy(alpha = 0.4f),
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.Bold
+                                fontSize = 22.sp,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center
                             )
                         }
 
-                        // Valor actual de juegos
+                        // Número gigante bien visible para la presbicia
                         Text(
-                            text = "${state.maxGames} Juegos",
+                            text = "${state.maxGames}",
                             color = yellowColor,
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.ExtraBold,
+                            fontSize = 26.sp,
+                            fontWeight = FontWeight.Black,
                             textAlign = TextAlign.Center
                         )
 
                         // Botón Más (+)
                         Box(
                             modifier = Modifier
-                                .size(32.dp)
+                                .size(36.dp)
                                 .clip(CircleShape)
                                 .background(if (state.maxGames < 6) Color.DarkGray else Color.Transparent)
                                 .clickable(enabled = state.maxGames < 6) {
@@ -151,8 +155,9 @@ fun ConfigScreen(
                             Text(
                                 text = "+",
                                 color = if (state.maxGames < 6) Color.White else Color.Gray.copy(alpha = 0.4f),
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.Bold
+                                fontSize = 22.sp,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center
                             )
                         }
                     }
@@ -173,7 +178,9 @@ fun ConfigScreen(
                     Text(
                         text = if (state.useTiebreak) "Tiebreak: SÍ" else "Tiebreak: NO",
                         fontWeight = FontWeight.Bold,
-                        fontSize = 13.sp
+                        fontSize = 13.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
             }
@@ -192,7 +199,9 @@ fun ConfigScreen(
                         Text(
                             text = if (state.tiebreakDieAt7) "Muere en 7: SÍ" else "Muere en 7: NO",
                             fontWeight = FontWeight.Bold,
-                            fontSize = 13.sp
+                            fontSize = 13.sp,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth()
                         )
                     }
                 }
@@ -212,12 +221,14 @@ fun ConfigScreen(
                     Text(
                         text = if (state.soundEnabled) "Sonido: SÍ" else "Sonido: NO",
                         fontWeight = FontWeight.Bold,
-                        fontSize = 13.sp
+                        fontSize = 13.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
             }
 
-            // 4. VOLVER AL PARTIDO
+            // 5. VOLVER AL PARTIDO
             item {
                 Spacer(modifier = Modifier.height(8.dp))
                 Button(
@@ -228,11 +239,17 @@ fun ConfigScreen(
                         contentColor = blackColor
                     )
                 ) {
-                    Text("Volver", fontWeight = FontWeight.Bold, fontSize = 13.sp)
+                    Text(
+                        text = "Volver",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 13.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
                 }
             }
 
-            // 5. MARCA DEL CREADOR
+            // 6. MARCA DEL CREADOR
             item {
                 Spacer(modifier = Modifier.height(10.dp))
                 Text(
