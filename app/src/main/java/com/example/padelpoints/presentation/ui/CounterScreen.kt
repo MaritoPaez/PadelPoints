@@ -106,7 +106,8 @@ fun CounterScreenContent(
                     isServing = activeServingTeam == 1,
                     textColor = yellowColor,
                     badgeBgColor = yellowColor,
-                    badgeTextColor = blackColor
+                    badgeTextColor = blackColor,
+                    isLeftTeam = true
                 )
             }
 
@@ -131,7 +132,8 @@ fun CounterScreenContent(
                     isServing = activeServingTeam == 2,
                     textColor = blackColor,
                     badgeBgColor = blackColor,
-                    badgeTextColor = yellowColor
+                    badgeTextColor = yellowColor,
+                    isLeftTeam = false
                 )
             }
         }
@@ -324,14 +326,18 @@ private fun TeamHalfContent(
     isServing: Boolean,
     textColor: Color,
     badgeBgColor: Color,
-    badgeTextColor: Color
+    badgeTextColor: Color,
+    isLeftTeam: Boolean
 ) {
+    val yellowColor = Color(0xFFFFE500)
+    val blackColor = Color(0xFF000000)
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 14.dp, bottom = 16.dp, start = 2.dp, end = 2.dp)
+            .padding(top = 10.dp, bottom = 12.dp, start = 2.dp, end = 2.dp)
     ) {
         // ENCABEZADO DEL EQUIPO (SI SACA, MUESTRA SOLO 'SAQUE'; SI NO, MUESTRA SOLO 'EQ 1' / 'EQ 2')
         Box(
@@ -363,28 +369,29 @@ private fun TeamHalfContent(
 
         Spacer(modifier = Modifier.height(2.dp))
 
-        // PUNTOS DEL JUEGO
+        // PUNTOS DEL JUEGO (INTACTOS, EN SU LUGAR Y TAMAÑO ORIGINAL)
         Text(
             text = pointsText,
             color = textColor,
-            fontSize = if (pointsText == "ORO" || pointsText == "TB") 32.sp else 58.sp,
+            fontSize = if (pointsText == "ORO") 32.sp else 58.sp,
             fontWeight = FontWeight.ExtraBold,
             textAlign = TextAlign.Center
         )
 
-        // JUEGOS GANADOS O PUNTOS DE TIEBREAK (CÍRCULO 48dp CON NÚMERO 30sp Y SUPERPOSICIÓN SUTIL)
+        // JUEGOS GANADOS: MÁS ABAJO, HACIA EL CENTRO, MÁS GRANDE (54dp / 34sp), FONDO NEGRO Y NÚMERO AMARILLO
+        val xShift = if (isLeftTeam) 10.dp else (-10).dp
         Box(
             modifier = Modifier
-                .offset(y = (-8).dp)
-                .size(48.dp)
-                .background(textColor.copy(alpha = 0.28f), shape = CircleShape)
-                .border(1.dp, textColor.copy(alpha = 0.45f), CircleShape),
+                .offset(x = xShift, y = 6.dp)
+                .size(54.dp)
+                .background(blackColor, shape = CircleShape)
+                .border(1.5.dp, yellowColor, CircleShape),
             contentAlignment = Alignment.Center
         ) {
             Text(
                 text = gamesCount.toString(),
-                color = textColor,
-                fontSize = 30.sp,
+                color = yellowColor,
+                fontSize = 34.sp,
                 fontWeight = FontWeight.Black,
                 textAlign = TextAlign.Center
             )
