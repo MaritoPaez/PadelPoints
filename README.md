@@ -1,11 +1,16 @@
-# PadelPoints 🎾⌚ (v1.3.2)
+# PadelPoints 🎾⌚ (v1.3.3)
 
 **PadelPoints** es una aplicación nativa para **Wear OS** (diseñada y optimizada para **Samsung Galaxy Watch7 en adelante** y relojes inteligentes con pantalla circular) que permite llevar la puntuación de partidos de pádel (o tenis) de forma sencilla, veloz y con síntesis de voz e interfaz adaptada para lectura rápida en la cancha.
 
 ---
 
-## 🚀 Novedades de la Versión 1.3.2 (v1.3.2)
+## 🚀 Novedades de la Versión 1.3.3 (v1.3.3)
 
+* ⚖️ **Regla Opcional "Diferencia de 2: SÍ / NO"**:
+  - Por defecto en **NO** (muerte súbita al llegar a la meta de juegos por set, ej. victoria directa al llegar a 4-3 sin requerir diferencia de 2).
+  - Opción de activar **Diferencia de 2: SÍ** cuando se requiere ventaja obligatoria de dos juegos (ej. 4-2, 5-3).
+* 🔊 **Audios de Diferencia de Dos Unificados**:
+  - Nuevos audios pregrabados `diferencia_2_activada.wav` y `diferencia_2_desactivada.wav` generados con la misma voz (*Microsoft Sabina*) para mantener coherencia e identidad vocal.
 * 🔍 **Optimización de Legibilidad para Presbicia**:
   - **Selector de Juegos Gigante**: El número de juegos por set en el menú de configuración se aumentó a **26sp ExtraBold Black** en amarillo brillante, removiendo textos redundantes.
   - **Centrado Universal**: Todos los botones y opciones de configuración ahora cuentan con alineación 100% centrada.
@@ -14,9 +19,7 @@
 * 🎾 **Modo Tiebreak Oficial y "Muere en 7"**:
   - Activación/desactivación de Tiebreak y regla opcional "Muere en 7" desde el menú de configuración.
   - Rotación de saque oficial cada 2 puntos en Tiebreak.
-* 🔊 **Audios de Tiebreak Unificados (Hasta 15 Puntos)**:
-  - Audios pregrabados en español para todas las combinaciones de Tiebreak hasta 15 puntos por lado (`tiebreak_puntos_0_0` a `tiebreak_puntos_15_15`).
-  - Pronunciación natural *"Taibrek activado/desactivado"*.
+  - Audios pregrabados para todas las combinaciones de Tiebreak hasta 15 puntos por lado (`tiebreak_puntos_0_0` a `tiebreak_puntos_15_15`).
 * 🕒 **Reloj Analógico Minimalista**:
   - Esfera analógica negra con agujas blancas para consultar la hora de un vistazo.
 

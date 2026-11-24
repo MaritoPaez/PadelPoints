@@ -164,9 +164,30 @@ fun ConfigScreen(
                 }
             }
 
-            // 3. TIEBREAK (SÍ / NO)
+            // 2b. DIFERENCIA DE 2 (SÍ / NO) - Default: NO
             item {
                 Spacer(modifier = Modifier.height(4.dp))
+                Button(
+                    onClick = { viewModel.toggleRequire2GamesDifference(!state.require2GamesDifference) },
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = if (state.require2GamesDifference) Color(0xFF2E7D32) else Color.DarkGray,
+                        contentColor = Color.White
+                    )
+                ) {
+                    Text(
+                        text = if (state.require2GamesDifference) "Diferencia de 2: SÍ" else "Diferencia de 2: NO",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 13.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            }
+
+            // 3. TIEBREAK (SÍ / NO)
+            item {
+                Spacer(modifier = Modifier.height(2.dp))
                 Button(
                     onClick = { viewModel.toggleTiebreak(!state.useTiebreak) },
                     modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),

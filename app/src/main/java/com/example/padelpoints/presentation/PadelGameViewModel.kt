@@ -115,14 +115,14 @@ class PadelGameViewModel : ViewModel() {
 
         val nextServingTeam = if (currentState.servingTeam == 1) 2 else 1
 
-        val hasWinner = if (currentState.useTiebreak) {
-            if (winningTeam == 1) newT1Games >= currentState.maxGames else newT2Games >= currentState.maxGames
-        } else {
+        val hasWinner = if (currentState.require2GamesDifference) {
             if (winningTeam == 1) {
                 newT1Games >= currentState.maxGames && (newT1Games - newT2Games >= 2)
             } else {
                 newT2Games >= currentState.maxGames && (newT2Games - newT1Games >= 2)
             }
+        } else {
+            if (winningTeam == 1) newT1Games >= currentState.maxGames else newT2Games >= currentState.maxGames
         }
 
         val isNextGameTiebreak = currentState.useTiebreak && !hasWinner &&
@@ -214,6 +214,7 @@ class PadelGameViewModel : ViewModel() {
         val currentState = _state.value
         val newState = PadelGameState(
             maxGames = currentState.maxGames,
+            require2GamesDifference = currentState.require2GamesDifference,
             useTiebreak = currentState.useTiebreak,
             tiebreakDieAt7 = currentState.tiebreakDieAt7,
             soundEnabled = currentState.soundEnabled
@@ -226,6 +227,16 @@ class PadelGameViewModel : ViewModel() {
         val newState = _state.value.copy(maxGames = games)
         _state.value = newState
         soundManager?.playSoundOrSpeak("a_$games", "A $games")
+    }
+
+    fun toggleRequire2GamesDifference(enabled: Boolean) {
+        val newState = _state.value.copy(require2GamesDifference = enabled)
+        _state.value = newState
+        if (enabled) {
+            soundManager?.playSoundOrSpeak("diferencia_2_activada", "Diferencia de dos activada")
+        } else {
+            soundManager?.playSoundOrSpeak("diferencia_2_desactivada", "Diferencia de dos desactivada")
+        }
     }
 
     fun toggleTiebreak(enabled: Boolean) {

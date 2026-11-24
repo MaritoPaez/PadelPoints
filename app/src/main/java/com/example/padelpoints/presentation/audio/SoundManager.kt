@@ -40,6 +40,7 @@ class SoundManager(private val context: Context) {
             "punto_de_oro", "juego_equipo_1", "juego_equipo_2",
             "partido_equipo_1", "partido_equipo_2", "punto_anulado",
             "partido_reiniciado", "a_3", "a_4", "a_5", "a_6", "sonido_activado",
+            "diferencia_2_activada", "diferencia_2_desactivada",
             "tiebreak_activado", "tiebreak_desactivado", "no_acciones", "partido_finalizado"
         )
 

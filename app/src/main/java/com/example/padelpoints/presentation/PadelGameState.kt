@@ -7,6 +7,7 @@ data class PadelGameState(
     val team1Games: Int = 0,
     val team2Games: Int = 0,
     val maxGames: Int = 4,       // Default 4 games to win set
+    val require2GamesDifference: Boolean = false, // Default false (Muerte súbita al llegar a maxGames)
     val useTiebreak: Boolean = false, // Default false
     val tiebreakDieAt7: Boolean = false, // Default false ("Muere en 7")
     val tiebreakInitialServer: Int? = null, // First server of the tiebreak
